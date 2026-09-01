@@ -149,7 +149,7 @@ void _runTest(String path) {
   // Check if we are just running a subset of the tests.
   if (_filterPath != null) {
     var thisTest = p.posix.relative(path, from: "test");
-    if (thisTest.startsWith(_filterPath!)) return;
+    if (!thisTest.startsWith(_filterPath!)) return;
   }
 
   // Update the status line.
