@@ -447,6 +447,22 @@ void _defineTestSuites() {
     _javaSuites.add(name);
   }
 
+  //These are my tests that fail because of implementing challenges
+  var jloxPersonalSkipped = {
+    "test/while/fun_in_body.lox": "skip", //anonymous functions, different error message
+    "test/operator/add_bool_string.lox": "skip", //allow addition if one operand is string
+    "test/operator/add_num_nil.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_string_nil.lox": "skip", //allow addition if one operand is string
+    "test/operator/add_bool_num.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_nil_nil.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_bool_nil.lox": "skip", //operands can be of different type, different error message
+    "test/if/fun_in_then.lox": "skip", //anonymous functions, different error message
+    "test/if/fun_in_else.lox": "skip", //anonymous functions, different error message
+    "test/for/fun_in_body.lox": "skip", //anonymous functions, different error message
+    "test/field/set_on_class.lox": "skip", //allow static members
+    "test/field/get_on_class.lox": "skip", //allow static members, different error message
+  };
+
   // These are just for earlier chapters.
   var earlyChapters = {
     "test/scanning": "skip",
@@ -599,6 +615,7 @@ void _defineTestSuites() {
     ...earlyChapters,
     ...javaNaNEquality,
     ...noJavaLimits,
+    ...jloxPersonalSkipped,
   });
 
   java("chap04_scanning", {
