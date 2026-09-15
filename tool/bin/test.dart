@@ -447,6 +447,17 @@ void _defineTestSuites() {
     _javaSuites.add(name);
   }
 
+  var cloxPersonalSkipped = {
+    "test/operator/add_bool_string.lox": "skip", //allow addition if one operand is string
+    "test/operator/add_num_nil.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_string_nil.lox": "skip", //allow addition if one operand is string
+    "test/operator/add_bool_num.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_nil_nil.lox": "skip", //operands can be of different type, different error message
+    "test/operator/add_bool_nil.lox": "skip", //operands can be of different type, different error message
+    "test/limit/no_reuse_constants.lox": "skip", //up to 2^24 constants allowed, error not seen
+    "test/limit/too_many_constants.lox": "skip", //up to 2^24 constants allowed, error not seen
+  };
+
   // These are just for earlier chapters.
   var earlyChapters = {
     "test/scanning": "skip",
@@ -692,6 +703,7 @@ void _defineTestSuites() {
   c("clox", {
     "test": "pass",
     ...earlyChapters,
+    ...cloxPersonalSkipped,
   });
 
   c("chap17_compiling", {
